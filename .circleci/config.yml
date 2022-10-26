@@ -28,14 +28,29 @@ jobs:
           name: "Print an env var stored in the Project"
           command: echo ${TEST_ENV_VAR}
 
+      - restore_cache:
+          keys:
+            - deps-v1--{{ checksum "my-medusa-starter/package-lock.json" }}
+            - deps-v1-
+
       # - run:
       #     name: "Print an env var stored in a Context"
       #     command: echo ${CONTEXT_ENV_VAR}
 
-      # - run: 
-      #     name: Install Deps
-      #     command: |
-      #       npm i
+      - run: 
+          name: Install Deps
+          command: |
+            cd my-medusa-starter &&
+            npm i
+
+      - save_cache:
+          paths:
+            - my-medusa-starter/node_modules
+          key: deps-v1--{{ checksum "my-medusa-starter/package-lock.json" }}
+
+      - run:
+          name: "Cache Saved"
+          command: echo deps-v1--{{ checksum "my-medusa-starter/package-lock.json" }}
 
 workflows:
   build-prod:
