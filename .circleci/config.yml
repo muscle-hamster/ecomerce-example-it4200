@@ -4,17 +4,17 @@ orbs:
   aws-cli: circleci/aws-cli@3.1.3
   # dockerhub: circleci/aws-cli@3.1.3
 #
-commands:
-  build_node_output:
-  description: "build the ouput for our production env"
-  steps:
-    - run:
-        name: Build node packages
-        command: |
-          npm run build
+# commands:
+#   build_node_output:
+#   description: "build the ouput for our production env"
+#   steps:
+#     - run:
+#         name: Build node packages
+#         command: |
+#           npm run build
 
 jobs:
-  build-storefont:
+  build-prod:
     - checkout
     # docker:
       # - image: cimg/node:18.11.0
@@ -39,8 +39,7 @@ jobs:
   #   - configure aws cli
   #   - use aws cli to deploy to ec2
 
-  workflows:
-    version: 2.1
-    build-prod:
-      jobs:
-        - build-storefont
+workflows:
+  build-prod:
+    jobs:
+      - build-storefont
