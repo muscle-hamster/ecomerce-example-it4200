@@ -10,4 +10,4 @@ jobs:
 workflows:
   build-prod:
     jobs:
-      - build-storefont
+      - build-storefront
