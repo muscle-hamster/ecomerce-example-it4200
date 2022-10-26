@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  build-prod:
+  build-storefront:
     docker:
       - image: cimg/node:18.11.0
 
