@@ -1,18 +1,5 @@
 version: 2.1
 
-# orbs:
-#   aws-cli: circleci/aws-cli@3.1.3
-  # dockerhub: circleci/aws-cli@3.1.3
-#
-# commands:
-#   build_node_output:
-#   description: "build the ouput for our production env"
-#   steps:
-#     - run:
-#         name: Build node packages
-#         command: |
-#           npm run build
-
 jobs:
   build-prod:
     docker:
@@ -20,26 +7,6 @@ jobs:
 
     steps:
       - checkout
-  #
-  # - restore_cache:
-  #   keys:
-  #     - deps-storefront--{{ checksum "package-lock.json" }}
-  #
-      # - build_node_output
-  #
-  #   -save-cache
-  #     paths:
-  #       - node-modules
-  #     key: deps-storefront--{{ checksum "package-lock.json" }} 
-  #
-  #   use aws cli to deploy
-  #   - Need SSH Keys (in environment vars)
-  #   - AWS Creds (in envionment variables)
-  #   - AWS region (in envionment variables)
-  #   - install aws cli
-  #   - configure aws cli
-  #   - use aws cli to deploy to ec2
-
 workflows:
   build-prod:
     jobs:
