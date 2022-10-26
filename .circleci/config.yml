@@ -20,9 +20,9 @@ jobs:
           name: "What branch am I on now?"
           command: echo $CIRCLE_BRANCH
 
-      # - run:
-      #     name: "What was my custom environment variable?"
-      #     command: echo ${MY_ENV_VAR}
+      - run:
+          name: "What was my custom environment variable?"
+          command: echo ${MY_ENV_VAR}
 
       - run:
           name: "Print an env var stored in the Project"
@@ -32,10 +32,10 @@ jobs:
       #     name: "Print an env var stored in a Context"
       #     command: echo ${CONTEXT_ENV_VAR}
 
-      - run: 
-          name: Install Deps
-          command: |
-            npm i
+      # - run: 
+      #     name: Install Deps
+      #     command: |
+      #       npm i
 
 workflows:
   build-prod:
